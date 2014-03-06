@@ -25,6 +25,7 @@ class BooksController extends AppController {
 
   public function viewTitle($title = null, $author = null){
     $title = preg_replace(array("/title:/"), array(""), $title);
+    $author = preg_replace(array("/author:/"), array(""), $author);
     $books = $this->Book->findBooks($title, $author);
     $this->set('books', $books);
     $this->render('view');
